@@ -1,0 +1,23 @@
+meta {
+  name: REGISTER - UNSUCCESSFUL
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{SERVICE_END_POINT}}/register
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "email": "sydney@fife"
+  }
+}
+
+tests {
+  test("Status code is 400", function () {
+      expect(res.getStatus()).to.equal(400);
+  });
+}

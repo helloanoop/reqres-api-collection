@@ -1,0 +1,17 @@
+meta {
+  name: DeleteUser
+  type: http
+  seq: 1
+}
+
+delete {
+  url: {{SERVICE_END_POINT}}/users/2
+  body: none
+  auth: none
+}
+
+tests {
+  test("Status code is 204", function () {
+      expect(res.getStatus()).to.equal(204);
+  });
+}

@@ -1,0 +1,17 @@
+meta {
+  name: SingleUserNotFound
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{SERVICE_END_POINT}}/users/23
+  body: none
+  auth: none
+}
+
+tests {
+  test("Status code is 404", function () {
+      expect(res.getStatus()).to.equal(404);
+  });
+}

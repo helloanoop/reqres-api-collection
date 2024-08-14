@@ -1,0 +1,17 @@
+meta {
+  name: SINGLE -RESOURCE- NOT FOUND
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{SERVICE_END_POINT}}/unknown/23
+  body: none
+  auth: none
+}
+
+tests {
+  test("Status code is 404", function () {
+      expect(res.getStatus()).to.equal(404);
+  });
+}

@@ -1,0 +1,24 @@
+meta {
+  name: UpdateUser
+  type: http
+  seq: 1
+}
+
+patch {
+  url: {{SERVICE_END_POINT}}/users/2
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "job": "{{job}}"
+  
+  }
+}
+
+tests {
+  test("Status code is 200", function () {
+      expect(res.getStatus()).to.equal(200);
+  });
+}

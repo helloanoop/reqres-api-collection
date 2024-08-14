@@ -1,0 +1,17 @@
+meta {
+  name: LIST -RESOURCE-
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{SERVICE_END_POINT}}/unknown
+  body: none
+  auth: none
+}
+
+tests {
+  test("Status code is 200", function () {
+      expect(res.getStatus()).to.equal(200);
+  });
+}

@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "DemoAPIs|REQRES",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

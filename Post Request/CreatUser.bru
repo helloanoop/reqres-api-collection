@@ -1,0 +1,24 @@
+meta {
+  name: CreatUser
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{SERVICE_END_POINT}}/users
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "name": "{{name}}",
+      "job": "{{job}}"
+  }
+}
+
+tests {
+  test("Status code is 201", function () {
+      expect(res.getStatus()).to.equal(201);
+  });
+}

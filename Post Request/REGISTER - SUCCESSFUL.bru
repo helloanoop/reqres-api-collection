@@ -1,0 +1,28 @@
+meta {
+  name: REGISTER - SUCCESSFUL
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{SERVICE_END_POINT}}/register
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "email": "eve.holt@reqres.in",
+      "password": "pistol"
+  }
+}
+
+tests {
+  test("Status code is 200", function () {
+      expect(res.getStatus()).to.equal(200);
+  });
+  
+  test("Response time is less than 1000ms", function () {
+      expect(res.getResponseTime()).to.be.below(1000);
+  });
+}

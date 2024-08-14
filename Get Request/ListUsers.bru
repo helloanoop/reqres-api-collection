@@ -1,0 +1,47 @@
+meta {
+  name: ListUsers
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{SERVICE_END_POINT}}/users?page=20
+  body: none
+  auth: none
+}
+
+params:query {
+  page: 20
+}
+
+script:pre-request {
+  console.log("This is a log ");
+  console.info("This is an info");
+  console.warn("This is a warning");
+  console.error("This is an error")
+}
+
+tests {
+  test("Status code is 200", function () {
+      expect(res.getStatus()).to.equal(200);
+  });
+  
+  //Set Variable by priority based
+  
+  bru.setVar("name","Talha");
+  bru.setEnvVar("name", "Sakib");
+  bru.setVar("name", "Sani");
+  // pm.globals.set("name", "Iqbal");
+  
+  //Get the value 
+  
+  bru.getEnvVar("name");
+  bru.getVar("name");
+  // pm.globals.get("name");
+  bru.getVar("name");
+  
+  let name = "Talha";
+  console.log(name)
+  
+  
+}
